@@ -9,12 +9,11 @@ package main
 import (
         "fmt"
 
-        "github.com/ksss/go-minimagick/convert"
-        "github.com/ksss/go-minimagick/info"
+        "github.com/ksss/go-minimagick"
 )
 
 func main () {
-        shellOutBytes, err = convert.New().Resize("100x100").Add("some.jpg", "out.jpg").Run()
+        shellOutBytes, err = minimagick.NewConvert().Resize("100x100").Add("some.jpg", "out.jpg").Run()
 
         width, err := info.Width("some.jpg")
         height, err := info.Height("some.jpg")

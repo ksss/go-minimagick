@@ -1,15 +1,11 @@
-package mogrify
-
-import (
-	"github.com/ksss/go-minimagick/shell"
-)
+package minimagick
 
 type mogrify struct {
-	shell.Tool
+	Tool
 }
 
 // New instance
-func New() *mogrify {
+func NewMogrify() *mogrify {
 	c := new(mogrify)
 	c.Name = "mogrify"
 	c.Args = []string{}

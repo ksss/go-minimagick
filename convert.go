@@ -1,13 +1,11 @@
-package convert
-
-import "github.com/ksss/go-minimagick/shell"
+package minimagick
 
 type convert struct {
-	shell.Tool
+	Tool
 }
 
 // New instance
-func New() *convert {
+func NewConvert() *convert {
 	c := new(convert)
 	c.Name = "convert"
 	c.Args = []string{}

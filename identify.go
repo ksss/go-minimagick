@@ -1,13 +1,11 @@
-package identify
-
-import "github.com/ksss/go-minimagick/shell"
+package minimagick
 
 type identify struct {
-	shell.Tool
+	Tool
 }
 
 // New instance
-func New() *identify {
+func NewIdentify() *identify {
 	c := new(identify)
 	c.Name = "identify"
 	c.Args = []string{}

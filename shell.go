@@ -1,9 +1,13 @@
-package shell
+package minimagick
 
 import (
+	"fmt"
 	"os/exec"
 	"strings"
+	"time"
 )
+
+var Debug = false
 
 // Tool is a base struct for embed
 type Tool struct {
@@ -41,6 +45,11 @@ func (c *Tool) Command() *exec.Cmd {
 // Run command
 //   convert.New().Add("src.jpg", "output.jpg").Run()
 func (c *Tool) Run() ([]byte, error) {
+	if Debug == true {
+		start := time.Now()
+		commands := c.Commands()
+		fmt.Printf("%dms %s\n", time.Since(start)/1000, commands)
+	}
 	return c.Command().CombinedOutput()
 }
 
