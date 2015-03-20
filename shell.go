@@ -56,9 +56,12 @@ func (c *Tool) Run() ([]byte, error) {
 	if IsDebug() == true {
 		start := time.Now()
 		commands := c.Commands()
-		fmt.Printf("%dms %s\n", time.Since(start)/1000, commands)
+		out, err := c.Command().CombinedOutput()
+		fmt.Println(time.Since(start), commands)
+		return out, err
+	} else {
+		return c.Command().CombinedOutput()
 	}
-	return c.Command().CombinedOutput()
 }
 
 // Exec is a alias for Run
